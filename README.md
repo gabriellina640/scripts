@@ -21,6 +21,9 @@ Base curada para desenvolvimento assistido por Codex com foco em **segurança, d
   - `skills/finishing-a-development-branch/`
 - Guias e templates:
   - `docs/codex-internacional-setup.md`
+  - `docs/setup-local-codex.md`
+  - `docs/vscode-codex-replicavel.md`
+  - `docs/acompanhamento-macos-passo-a-passo.md`
   - `templates/design-template.md`
   - `templates/implementation-plan-template.md`
   - `templates/review-checklist.md`
