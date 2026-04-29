@@ -1,3 +1,7 @@
+---
+name: ui-ux-pro-max
+description: Gerar decisões de UI/UX consistentes
+---
 # UI UX Pro Max (Curated)
 
 ## Quando usar
