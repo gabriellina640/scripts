@@ -14,7 +14,7 @@ mkdir -p "$PROJECT_PATH/.codex-kit"
 # AGENTS na raiz
 cp "$KIT_PATH/AGENTS.md" "$PROJECT_PATH/AGENTS.md"
 
-# Kit centralizado
+# Kit centralizado em .codex-kit
 rm -rf "$PROJECT_PATH/.codex-kit/agents" \
        "$PROJECT_PATH/.codex-kit/skills" \
        "$PROJECT_PATH/.codex-kit/templates" \
@@ -23,10 +23,11 @@ rm -rf "$PROJECT_PATH/.codex-kit/agents" \
 cp -R "$KIT_PATH/agents" "$PROJECT_PATH/.codex-kit/agents"
 cp -R "$KIT_PATH/skills" "$PROJECT_PATH/.codex-kit/skills"
 cp -R "$KIT_PATH/templates" "$PROJECT_PATH/.codex-kit/templates"
+
 mkdir -p "$PROJECT_PATH/.codex-kit/docs"
 cp -R "$KIT_PATH/docs/." "$PROJECT_PATH/.codex-kit/docs/"
 
-# hardening mínimo
+# hardening básico
 if [ ! -f "$PROJECT_PATH/.gitignore" ]; then
   cat > "$PROJECT_PATH/.gitignore" <<'GI'
 .env
