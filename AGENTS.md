@@ -128,6 +128,11 @@ Este projeto utiliza um fluxo profissional com Codex focado em previsibilidade, 
 
 - Resultado esperado: decisão de fusão/PR com validação final.
 
+### 12) Quando houver trabalho de UI/UX
+- Use: `.codex-kit/skills/ui-ux-pro-max/`
+
+- Resultado esperado: direção visual + tokens + checklist de acessibilidade + validação responsiva
+
 
 
 ## Fluxo operacional
