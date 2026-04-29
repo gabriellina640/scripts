@@ -32,28 +32,23 @@ git init
 cd /caminho/do/seu/projeto
 ```
 
-## 3) Copiar os arquivos-base do kit para seu projeto
+## 3) Aplicar os arquivos-base do kit no seu projeto
 
-No terminal do seu projeto:
+No terminal do kit:
 
 ```bash
-cp -R /caminho/para/codex-international-kit/agents ./
-cp -R /caminho/para/codex-international-kit/skills ./
-cp -R /caminho/para/codex-international-kit/templates ./
-cp /caminho/para/codex-international-kit/AGENTS.md ./AGENTS.md
-cp /caminho/para/codex-international-kit/docs/codex-internacional-setup.md ./docs-codex-setup.md
-cp /caminho/para/codex-international-kit/docs/setup-local-codex.md ./docs-codex-local-setup.md
+./bootstrap-project.sh /caminho/para/codex-international-kit /caminho/do/seu/projeto
 ```
 
-> Dica: se preferir, mantenha só `AGENTS.md`, `agents/`, `skills/` e `templates/`.
+O projeto consumidor deve ficar com `AGENTS.md` na raiz e `.codex-kit/{agents,skills,templates,docs}` para todo o restante do kit.
 
 ## 4) Instalar/abrir Codex no seu fluxo
 
 No ambiente do Codex (CLI/App), abra a pasta raiz do seu projeto e confirme que ele consegue ler:
 
 - `AGENTS.md`
-- `skills/`
-- `agents/code-reviewer.md`
+- `.codex-kit/skills/`
+- `.codex-kit/agents/code-reviewer.md`
 
 Se o Codex já estiver aberto, reinicie a sessão após copiar os arquivos.
 
@@ -71,21 +66,21 @@ Leia o AGENTS.md e me diga: (1) fluxo padrão por tarefa, (2) regras obrigatóri
 
 Use esta sequência:
 
-1. Abra `templates/design-template.md` e preencha com uma feature pequena.
-2. Peça ao Codex para gerar um plano usando `templates/implementation-plan-template.md`.
+1. Abra `.codex-kit/templates/design-template.md` e preencha com uma feature pequena.
+2. Peça ao Codex para gerar um plano usando `.codex-kit/templates/implementation-plan-template.md`.
 3. Execute tarefas atômicas com TDD quando aplicável.
-4. Rode code review com `skills/requesting-code-review` + `agents/code-reviewer.md`.
-5. Feche com `skills/verification-before-completion`.
+4. Rode code review com `.codex-kit/skills/requesting-code-review` + `.codex-kit/agents/code-reviewer.md`.
+5. Feche com `.codex-kit/skills/verification-before-completion`.
 
 ## 7) Prompt pronto para iniciar qualquer feature
 
 ```text
 Quero implementar a feature abaixo seguindo estritamente AGENTS.md.
-1) Faça um design curto usando templates/design-template.md.
-2) Gere um plano atômico usando templates/implementation-plan-template.md.
+1) Faça um design curto usando .codex-kit/templates/design-template.md.
+2) Gere um plano atômico usando .codex-kit/templates/implementation-plan-template.md.
 3) Execute em etapas com validação por tarefa.
-4) Antes de concluir, faça revisão com agents/code-reviewer.md.
-5) Finalize com checklist de templates/review-checklist.md e verification-before-completion.
+4) Antes de concluir, faça revisão com .codex-kit/agents/code-reviewer.md.
+5) Finalize com checklist de .codex-kit/templates/review-checklist.md e verification-before-completion.
 
 Feature:
 <descreva aqui>
@@ -108,9 +103,8 @@ Feature:
 ## 10) Checklist final de ambiente pronto
 
 - [ ] `AGENTS.md` presente na raiz do projeto
-- [ ] pasta `skills/` presente
-- [ ] `agents/code-reviewer.md` presente
-- [ ] pasta `templates/` presente
+- [ ] pasta `.codex-kit/skills/` presente
+- [ ] `.codex-kit/agents/code-reviewer.md` presente
+- [ ] pasta `.codex-kit/templates/` presente
 - [ ] smoke test do item 5 aprovado
 - [ ] 1 feature piloto executada de ponta a ponta
-

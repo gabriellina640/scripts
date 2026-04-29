@@ -38,46 +38,18 @@ cd codex-international-kit
 
 ```bash
 test -f AGENTS.md && echo "OK AGENTS"
-test -f agents/code-reviewer.md && echo "OK reviewer"
-test -d skills && echo "OK skills"
-test -d templates && echo "OK templates"
+test -f .codex-kit/agents/code-reviewer.md && echo "OK reviewer"
+test -d .codex-kit/skills && echo "OK skills"
+test -d .codex-kit/templates && echo "OK templates"
 ```
 
 ---
 
 ## Fase 2 — Bootstrap seguro do projeto
 
-### 2.1 Criar script local de bootstrap (compatível com macOS)
+### 2.1 Usar o script local de bootstrap
 
-```bash
-cat > bootstrap-project.sh <<'SH'
-#!/usr/bin/env bash
-set -euo pipefail
-
-if [ $# -ne 2 ]; then
-  echo "Uso: ./bootstrap-project.sh <KIT_PATH> <PROJECT_PATH>"
-  exit 1
-fi
-
-KIT_PATH="$1"
-PROJECT_PATH="$2"
-
-mkdir -p "$PROJECT_PATH"
-cp "$KIT_PATH/AGENTS.md" "$PROJECT_PATH/AGENTS.md"
-rm -rf "$PROJECT_PATH/agents" "$PROJECT_PATH/skills" "$PROJECT_PATH/templates"
-cp -R "$KIT_PATH/agents" "$PROJECT_PATH/agents"
-cp -R "$KIT_PATH/skills" "$PROJECT_PATH/skills"
-cp -R "$KIT_PATH/templates" "$PROJECT_PATH/templates"
-
-cp "$KIT_PATH/docs/codex-internacional-setup.md" "$PROJECT_PATH/docs-codex-setup.md"
-cp "$KIT_PATH/docs/setup-local-codex.md" "$PROJECT_PATH/docs-codex-local-setup.md"
-cp "$KIT_PATH/docs/vscode-codex-replicavel.md" "$PROJECT_PATH/docs-codex-vscode.md"
-cp "$KIT_PATH/docs/acompanhamento-macos-passo-a-passo.md" "$PROJECT_PATH/docs-codex-acompanhamento.md"
-
-echo "Bootstrap concluído em: $PROJECT_PATH"
-SH
-chmod 700 bootstrap-project.sh
-```
+Este kit já possui `bootstrap-project.sh`. Ele deve criar somente `AGENTS.md` na raiz do projeto consumidor e colocar o restante em `.codex-kit/{agents,skills,templates,docs}`.
 
 ### 2.2 Inspeção de segurança do script (antes de rodar)
 
@@ -130,7 +102,7 @@ Leia AGENTS.md e responda objetivamente:
 
 Critério de aprovação:
 - menciona design -> plano -> execução -> review -> verificação
-- referencia `agents/code-reviewer.md`
+- referencia `.codex-kit/agents/code-reviewer.md`
 
 ---
 
@@ -139,7 +111,7 @@ Critério de aprovação:
 Estrutura:
 
 ```text
-skills/<nome-da-skill>/
+.codex-kit/skills/<nome-da-skill>/
   SKILL.md
   references/ (opcional)
   scripts/ (opcional)
@@ -173,10 +145,10 @@ Comandos principais são POSIX e compatíveis com macOS (bash + cp + test + sed)
 
 ```text
 Siga estritamente o AGENTS.md.
-- Faça design usando templates/design-template.md.
-- Faça plano com templates/implementation-plan-template.md.
+- Faça design usando .codex-kit/templates/design-template.md.
+- Faça plano com .codex-kit/templates/implementation-plan-template.md.
 - Execute por tarefas atômicas com validação.
-- Rode code review com skills/requesting-code-review + agents/code-reviewer.md.
-- Finalize com verification-before-completion e checklist de templates/review-checklist.md.
+- Rode code review com .codex-kit/skills/requesting-code-review + .codex-kit/agents/code-reviewer.md.
+- Finalize com verification-before-completion e checklist de .codex-kit/templates/review-checklist.md.
 - Mostre evidências técnicas e rollback.
 ```

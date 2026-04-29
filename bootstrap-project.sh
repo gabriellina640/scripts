@@ -73,20 +73,21 @@ elif [ -d "$KIT_PATH/.codex-kit/docs" ]; then
   cp -R "$KIT_PATH/.codex-kit/docs/." "$PROJECT_PATH/.codex-kit/docs/"
 fi
 
-# Hardening mínimo
-if [ ! -f "$PROJECT_PATH/.gitignore" ]; then
-  cat > "$PROJECT_PATH/.gitignore" <<'GI'
-.env
-.env.*
-*.pem
-*.key
-.DS_Store
-GI
-fi
-
 echo "Bootstrap concluído: $PROJECT_PATH"
 echo "Sources usados:"
 echo "  agents:    $AGENTS_SRC"
 echo "  skills:    $SKILLS_SRC"
 echo "  templates: $TEMPLATES_SRC"
 echo "Estrutura criada: AGENTS.md + .codex-kit/{agents,skills,templates,docs}"
+
+if [ ! -f "$PROJECT_PATH/.gitignore" ]; then
+  echo "Aviso: $PROJECT_PATH/.gitignore não existe."
+  echo "       Recomenda-se ignorar .env, .env.*, *.pem, *.key e .DS_Store."
+fi
+
+for legacy_dir in agents skills templates; do
+  if [ -e "$PROJECT_PATH/$legacy_dir" ]; then
+    echo "Aviso: $PROJECT_PATH/$legacy_dir já existe na raiz do projeto."
+    echo "       O bootstrap não usa essa pasta; revise manualmente se for resíduo de layout antigo."
+  fi
+done
