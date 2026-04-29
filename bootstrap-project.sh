@@ -1,4 +1,3 @@
-cat > bootstrap-project.sh <<'SH'
 #!/usr/bin/env bash
 set -euo pipefail
 
@@ -10,18 +9,33 @@ fi
 KIT_PATH="$1"
 PROJECT_PATH="$2"
 
-mkdir -p "$PROJECT_PATH"
+mkdir -p "$PROJECT_PATH/.codex-kit"
+
+# AGENTS na raiz
 cp "$KIT_PATH/AGENTS.md" "$PROJECT_PATH/AGENTS.md"
-rm -rf "$PROJECT_PATH/agents" "$PROJECT_PATH/skills" "$PROJECT_PATH/templates"
-cp -R "$KIT_PATH/agents" "$PROJECT_PATH/agents"
-cp -R "$KIT_PATH/skills" "$PROJECT_PATH/skills"
-cp -R "$KIT_PATH/templates" "$PROJECT_PATH/templates"
 
-cp "$KIT_PATH/docs/codex-internacional-setup.md" "$PROJECT_PATH/docs-codex-setup.md"
-cp "$KIT_PATH/docs/setup-local-codex.md" "$PROJECT_PATH/docs-codex-local-setup.md"
-cp "$KIT_PATH/docs/vscode-codex-replicavel.md" "$PROJECT_PATH/docs-codex-vscode.md"
-cp "$KIT_PATH/docs/acompanhamento-macos-passo-a-passo.md" "$PROJECT_PATH/docs-codex-acompanhamento.md"
+# Kit centralizado
+rm -rf "$PROJECT_PATH/.codex-kit/agents" \
+       "$PROJECT_PATH/.codex-kit/skills" \
+       "$PROJECT_PATH/.codex-kit/templates" \
+       "$PROJECT_PATH/.codex-kit/docs"
 
-echo "Bootstrap concluído em: $PROJECT_PATH"
-SH
-chmod 700 bootstrap-project.sh 
+cp -R "$KIT_PATH/agents" "$PROJECT_PATH/.codex-kit/agents"
+cp -R "$KIT_PATH/skills" "$PROJECT_PATH/.codex-kit/skills"
+cp -R "$KIT_PATH/templates" "$PROJECT_PATH/.codex-kit/templates"
+mkdir -p "$PROJECT_PATH/.codex-kit/docs"
+cp -R "$KIT_PATH/docs/." "$PROJECT_PATH/.codex-kit/docs/"
+
+# hardening mínimo
+if [ ! -f "$PROJECT_PATH/.gitignore" ]; then
+  cat > "$PROJECT_PATH/.gitignore" <<'GI'
+.env
+.env.*
+*.pem
+*.key
+.DS_Store
+GI
+fi
+
+echo "Bootstrap concluído: $PROJECT_PATH"
+echo "Estrutura criada: AGENTS.md + .codex-kit/{agents,skills,templates,docs}"
