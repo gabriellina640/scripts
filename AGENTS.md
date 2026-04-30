@@ -19,6 +19,13 @@ Este projeto utiliza um fluxo profissional com Codex focado em previsibilidade, 
 4. Não concluir sem code review.
 5. Não marcar "done" sem verificação final.
 
+## Diretriz de saída de código
+
+- Quando pedir implementação, solicite **apenas código**.
+- Use: `Only output code. Do not add comments or explanations.`
+- Evite respostas verbosas em tarefas de geração direta.
+- Explicações só quando você pedir explicitamente.
+
 ## Roteador de skills: qual usar em cada situação
 
 ### 1) Ideia vaga / escopo confuso

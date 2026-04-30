@@ -1,6 +1,6 @@
-# Guia prático: montar um repositório "Codex nível internacional"
+# Guia: Montar um Repositório "Codex Nível Internacional"
 
-Este documento destrincha o que realmente importa neste repositório (`superpowers`) para você criar um **outro repositório enxuto**, focado em qualidade de execução com Codex.
+Este documento destrincha o que realmente importa neste repositório para você criar um **outro repositório enxuto**, focado em qualidade de execução com Codex.
 
 ## Objetivo do novo repositório
 
