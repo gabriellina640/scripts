@@ -1,126 +1,56 @@
-# 📚 Índice de Documentação
+# Indice de Documentacao
 
-Bem-vindo ao **Codex International Kit**! Use este índice para navegar pela documentação.
+Bem-vindo ao **Codex Kit Pro**.
 
----
+## Comece aqui
 
-## 🚀 Comece aqui
+| Situacao | Arquivo |
+| --- | --- |
+| Quero entender o kit | `../../README.md` |
+| Quero saber qual skill usar | `../../AGENTS.md` |
+| Quero primeiro uso guiado | `00-GETTING-STARTED.md` |
+| Quero setup no macOS | `setup/01-setup-macos-passo-a-passo.md` |
+| Quero referencia historica | `SUPERPOWERS-REFERENCE.md` |
 
-| Situação | Arquivo | Tempo |
-|----------|---------|-------|
-| **Sou novo no kit** | [00-GETTING-STARTED.md](00-GETTING-STARTED.md) | 15 min |
-| **Quero entender filosofia** | [SUPERPOWERS-REFERENCE.md](SUPERPOWERS-REFERENCE.md) | 20 min |
-| **Vou configurar agora** | ⬇️ Veja "Setup" | Varia |
+## Fluxo de projeto completo
 
----
+1. Produto: `skills/product-discovery`
+2. Design: `skills/brainstorming`
+3. Direcao visual: `skills/creative-direction`
+4. Arquitetura: `skills/full-project-architecture`
+5. API/banco: `skills/api-design`, `skills/database-design`
+6. Plano: `skills/writing-plans`
+7. Execucao: `skills/executing-plans` ou `skills/subagent-driven-development`
+8. Qualidade: TDD, debugging, review e verificacao
+9. Hardening: seguranca, segredos, testes, performance, QA visual e release
 
-## ⚙️ Setup e Configuração
+## Skills adicionadas no Kit Pro
 
-### Para macOS + VS Code + Codex
+- `product-discovery`
+- `creative-direction`
+- `interface-craft`
+- `visual-quality-review`
+- `full-project-architecture`
+- `api-design`
+- `database-design`
+- `testing-strategy`
+- `security-threat-modeling`
+- `security-review`
+- `secrets-and-config-audit`
+- `performance-review`
+- `observability-and-release-readiness`
 
-1. **[01-setup-macos-passo-a-passo.md](setup/01-setup-macos-passo-a-passo.md)**
-   - Preparação do macOS
-   - Bootstrap do projeto
-   - Validação de segurança
-   - Smoke test
-   - **Tempo:** 20-30 min
+## Checklist rapido
 
-2. **[02-setup-local-codex.md](setup/02-setup-local-codex.md)**
-   - Clonar o kit
-   - Aplicar bootstrap
-   - Teste de fumaça (obrigatório)
-   - Primeira feature piloto
-   - **Tempo:** 30-45 min
+- [ ] Li `AGENTS.md`.
+- [ ] Sei qual skill usar para o estado atual.
+- [ ] Tenho design aprovado antes de implementar.
+- [ ] Tenho plano executavel antes de editar codigo.
+- [ ] Tenho validacao, review e verificacao final antes de chamar algo de pronto.
 
-3. **[03-vscode-codex-replicavel.md](setup/03-vscode-codex-replicavel.md)**
-   - Setup VS Code
-   - Fluxo operacional diário
-   - Adicionar novas skills
-   - Replicação em múltiplos dispositivos
-   - **Tempo:** 15-25 min
+## Comandos
 
----
-
-## 📖 Guias Operacionais
-
-### [codex-internacional-level.md](guides/codex-internacional-level.md)
-
-Guia para montar um repositório "nível internacional" focado em:
-- Seleção de skills essenciais
-- O que NÃO copiar
-- Estrutura mínima recomendada
-- AGENTS.md essencial
-- Checklist de qualidade
-
----
-
-## 🎯 Escolha rápida por objetivo
-
-**Quero...** | **Vá para:**
----|---
-Configurar agora no meu Mac | [01-setup-macos-passo-a-passo.md](setup/01-setup-macos-passo-a-passo.md)
-Entender como usar o kit | [00-GETTING-STARTED.md](00-GETTING-STARTED.md)
-Replicar em outro dispositivo | [03-vscode-codex-replicavel.md](setup/03-vscode-codex-replicavel.md)
-Criar meu próprio kit internacional | [codex-internacional-level.md](guides/codex-internacional-level.md)
-Entender filosofia de design | [SUPERPOWERS-REFERENCE.md](SUPERPOWERS-REFERENCE.md)
-
----
-
-## 📊 Mapa da Documentação
-
+```bash
+./verify-kit.sh
+./bootstrap-project.sh ~/scripts /caminho/para/projeto
 ```
-.codex-kit/docs/
-│
-├── INDEX.md (você está aqui)
-│
-├── 00-GETTING-STARTED.md
-│   └── Guia passo a passo para novatos
-│
-├── SUPERPOWERS-REFERENCE.md
-│   └── Referência externa de filosofia
-│
-├── setup/
-│   ├── 01-setup-macos-passo-a-passo.md
-│   │   └── Setup seguro no macOS com bootstrap
-│   ├── 02-setup-local-codex.md
-│   │   └── Configuração local do Codex
-│   └── 03-vscode-codex-replicavel.md
-│       └── Setup VS Code e replicação
-│
-└── guides/
-    └── codex-internacional-level.md
-        └── Guia para repositório de nível internacional
-```
-
----
-
-## 🔗 Referências Rápidas
-
-- **[AGENTS.md](../../../AGENTS.md)** — Seu mapa de skills local
-- **[.instructions.md](../../../.instructions.md)** — Visão geral do projeto
-- **[README.md](../../../README.md)** — Documentação principal
-- **[bootstrap-project.sh](../../../bootstrap-project.sh)** — Script de replicação
-
----
-
-## ✅ Checklist: "Estou pronto?"
-
-- [ ] Li [00-GETTING-STARTED.md](00-GETTING-STARTED.md)
-- [ ] Consultei [AGENTS.md](../../../AGENTS.md) do meu projeto
-- [ ] Rodei `./verify-kit.sh`
-- [ ] Executei smoke test em Codex
-- [ ] Fiz 1 feature piloto completa (design → implementação → review → verificação)
-
----
-
-## 💡 Dicas Gerais
-
-1. **Sempre comece por [AGENTS.md](../../../AGENTS.md)** — é seu mapa de referência diária
-2. **Smoke test é obrigatório** — valida que Codex entendeu sua estrutura
-3. **Use bootstrap seguro** — sempre inspecione scripts antes de executar
-4. **Replicação é fácil** — use `./bootstrap-project.sh` para novos projetos
-5. **Customize com cuidado** — documente mudanças no seu kit-base
-
----
-
-**Próximo passo?** [Vá para 00-GETTING-STARTED.md](00-GETTING-STARTED.md) ou [01-setup-macos-passo-a-passo.md](setup/01-setup-macos-passo-a-passo.md).

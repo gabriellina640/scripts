@@ -1,45 +1,40 @@
 ---
 name: ui-ux-pro-max
-description: Gerar decisões de UI/UX consistentes
+description: Compatibility skill for older prompts asking for UI/UX Pro Max; route modern UI work through creative-direction, interface-craft, and visual-quality-review.
 ---
-# UI UX Pro Max (Curated)
 
-## Quando usar
-- Nova interface (landing page, dashboard, app flow)
-- Refatoração visual/UX
-- Melhorar consistência, acessibilidade e conversão
+# UI UX Pro Max
 
-## Quando NÃO usar
-- Correção puramente backend
-- Hotfix urgente sem impacto visual
-- Mudanças sem tempo para validação UX mínima
+This skill is kept for compatibility with older prompts.
 
-## Objetivo
-Gerar decisões de UI/UX consistentes: estilo, layout, tipografia, contraste, estados interativos e checklist de entrega.
+For new work, use the stronger UI flow:
 
-## Entrada mínima obrigatória
-- Tipo de produto
-- Público-alvo
-- Objetivo da tela (ex.: conversão, onboarding, retenção)
-- Limites técnicos (framework, libs, design system existente)
+1. `.codex-kit/skills/creative-direction/`
+2. `.codex-kit/skills/interface-craft/`
+3. `.codex-kit/skills/visual-quality-review/`
 
-## Fluxo
-1. Diagnóstico rápido do contexto
-2. Escolha de direção visual (1 opção principal + 1 alternativa)
-3. Definição de design tokens (cores, fontes, spacing, radius, shadow)
-4. Estrutura de layout (hero/seções/componentes)
-5. Checklist de acessibilidade (WCAG AA)
-6. Entrega incremental com validação em breakpoints (375, 768, 1024, 1440)
+## When This Skill Triggers
 
-## Saída esperada
-- Mini design system da feature
-- Lista de componentes e estados (default/hover/focus/disabled/error)
-- Anti-padrões a evitar
-- Checklist final de QA visual + acessibilidade
+If the user explicitly asks for `ui-ux-pro-max`, do not use this as a standalone process. Translate the request into the modern flow:
 
-## Critérios de sucesso
-- Contraste adequado
-- Navegação clara
-- Estados interativos consistentes
-- Responsivo funcional
-- Sem regressão de UX principal.
+- unclear product/UI goal -> start with `product-discovery`
+- visual identity or non-generic UI -> use `creative-direction`
+- implementation of screens/components -> use `interface-craft`
+- review of implemented UI -> use `visual-quality-review`
+
+## Minimum Standard
+
+Any serious UI work must define:
+
+- product/user context
+- creative direction
+- component states
+- responsive behavior
+- accessibility checks
+- visual QA evidence
+
+## Red Flags
+
+- Starting implementation with only "make it modern".
+- Using gradients, cards, and generic SaaS layouts as the whole visual idea.
+- Calling UI complete without checking screenshots or responsive states.
