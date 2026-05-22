@@ -5,7 +5,6 @@ fail() { echo "[FAIL] $1"; exit 1; }
 pass() { echo "[OK] $1"; }
 
 [ -f AGENTS.md ] || fail "AGENTS.md ausente"
-[ -f bootstrap-project.sh ] || fail "bootstrap-project.sh ausente"
 [ -d .codex-kit ] || fail ".codex-kit/ ausente"
 [ -d .codex-kit/skills ] || fail ".codex-kit/skills/ ausente"
 [ -d .codex-kit/agents ] || fail ".codex-kit/agents/ ausente"
@@ -54,6 +53,8 @@ for skill_dir in .codex-kit/skills/*; do
   grep -q "^description:" "$skill_dir/SKILL.md" || fail "frontmatter description ausente em $skill"
 done
 
-bash -n bootstrap-project.sh || fail "bootstrap-project.sh com erro de sintaxe"
+if [ -f bootstrap-project.sh ]; then
+  bash -n bootstrap-project.sh || fail "bootstrap-project.sh com erro de sintaxe"
+fi
 bash -n verify-kit.sh || fail "verify-kit.sh com erro de sintaxe"
 pass "Estrutura do Codex Kit Pro validada: AGENTS.md + .codex-kit com skills essenciais"

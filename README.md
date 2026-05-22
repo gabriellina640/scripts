@@ -133,7 +133,7 @@ Release Readiness
 ./bootstrap-project.sh /caminho/para/este-kit /caminho/para/projeto
 ```
 
-O bootstrap copia `AGENTS.md` e `.codex-kit/{agents,skills,templates,docs}` para o projeto consumidor.
+O bootstrap copia apenas o essencial para o projeto consumidor: `AGENTS.md` e `.codex-kit/{agents,skills,templates,docs}`. Os scripts operacionais ficam no kit mestre.
 
 ## Segurança minima
 

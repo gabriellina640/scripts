@@ -19,20 +19,6 @@ else
   exit 1
 fi
 
-if [ -f "$KIT_PATH/.instructions.md" ]; then
-  cp "$KIT_PATH/.instructions.md" "$PROJECT_PATH/.instructions.md"
-fi
-
-if [ -f "$KIT_PATH/verify-kit.sh" ]; then
-  cp "$KIT_PATH/verify-kit.sh" "$PROJECT_PATH/verify-kit.sh"
-  chmod +x "$PROJECT_PATH/verify-kit.sh"
-fi
-
-if [ -f "$KIT_PATH/bootstrap-project.sh" ]; then
-  cp "$KIT_PATH/bootstrap-project.sh" "$PROJECT_PATH/bootstrap-project.sh"
-  chmod +x "$PROJECT_PATH/bootstrap-project.sh"
-fi
-
 # Resolve origem de cada bloco (aceita layout novo, legado e híbrido)
 resolve_src_dir() {
   local name="$1"
@@ -92,7 +78,7 @@ echo "Sources usados:"
 echo "  agents:    $AGENTS_SRC"
 echo "  skills:    $SKILLS_SRC"
 echo "  templates: $TEMPLATES_SRC"
-echo "Estrutura criada: AGENTS.md + .instructions.md + scripts operacionais + .codex-kit/{agents,skills,templates,docs}"
+echo "Estrutura criada: AGENTS.md + .codex-kit/{agents,skills,templates,docs}"
 
 if [ ! -f "$PROJECT_PATH/.gitignore" ]; then
   echo "Aviso: $PROJECT_PATH/.gitignore não existe."
