@@ -1,57 +1,76 @@
 ---
 name: product-discovery
-description: Use before building a new product, feature, MVP, SaaS, app, landing page, workflow, or unclear idea; turns vague intent into a sharp product brief with scope, users, value, constraints, risks, and success criteria.
+description: Use before building a new product, feature, MVP, SaaS, app, landing page, workflow, or unclear idea; turns vague intent into an approved product brief with user, job, scope, value, constraints, risks, non-goals, and success criteria.
 ---
 
 # Product Discovery
 
-Use this before architecture, UI, planning, or implementation when the request is product-shaped and still ambiguous.
+Use this before architecture, UI, planning, or implementation when the request is product-shaped and ambiguous.
 
-## Hard Gate
+## Hard Gates
 
-Do not design technical architecture or implementation tasks until the product brief is approved.
+- Do not propose architecture until the product brief is approved.
+- Do not create implementation tasks until MVP scope and non-goals are explicit.
+- Do not accept "everyone" as the target user.
+- Do not accept a feature list without a primary workflow.
+
+## Required Inputs
+
+- Product or feature idea
+- Intended user or buyer
+- Main problem or opportunity
+- Desired outcome
+- Constraints: time, stack, budget, data, integrations, platform
+
+Ask one concise question at a time when these are missing.
 
 ## Process
 
-1. Read the project context: `README.md`, `AGENTS.md`, existing app files, recent git history.
-2. Identify the product type: internal tool, SaaS, marketplace, content site, automation, mobile app, API, game, or landing page.
-3. Ask one question at a time until these are clear:
-   - target user
-   - pain or job-to-be-done
-   - primary workflow
-   - business or personal goal
-   - must-have outcome
-   - explicit non-goals
-   - constraints: time, stack, budget, data, integrations
-4. Propose 2-3 product scopes:
+1. Inspect project context: `README.md`, `AGENTS.md`, current app files, recent git history.
+2. Classify the product shape:
+   - internal tool
+   - SaaS
+   - marketplace
+   - content site
+   - automation
+   - mobile app
+   - API
+   - game
+   - landing page
+3. Define the user and job-to-be-done.
+4. Define the primary workflow from first intent to success.
+5. Separate must-have, should-have, and explicitly-not-now.
+6. Identify assumptions that must be true.
+7. Propose exactly 3 scopes:
    - recommended MVP
-   - smaller safer cut
+   - smaller validation cut
    - ambitious version
-5. Get approval for one scope.
+8. Recommend one scope and get approval.
 
-## Output
+## Required Output
 
-Produce a product brief:
-
-- Problem
+- Product name or working title
 - Target user
+- Problem
 - Core promise
 - Primary workflow
 - MVP scope
 - Non-goals
 - Differentiation
-- Risks and assumptions
+- Constraints
+- Assumptions
+- Risks
 - Success criteria
 - Next skill to use
 
 ## Quality Bar
 
-The brief must be concrete enough that architecture and UI decisions can be made without guessing.
+The brief must let another engineer design architecture and UI without guessing the product intent.
 
 ## Red Flags
 
-- "Everyone" as target user.
-- Feature list without a primary workflow.
-- No clear success metric.
-- Building a complete platform when one workflow would validate the idea.
-- Generic differentiation such as "modern", "simple", or "beautiful" without evidence.
+- "Users can do everything" as a scope.
+- No clear first workflow.
+- Success criteria that cannot be observed.
+- Differentiation based only on "modern", "simple", "fast", or "beautiful".
+- Building a complete platform before proving one valuable workflow.

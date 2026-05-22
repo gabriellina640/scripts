@@ -40,6 +40,43 @@ Use explicacoes apenas quando forem pedidas explicitamente ou quando houver risc
 9. Verificacao final
 10. Encerramento de branch
 
+## Regra anti-competicao entre skills
+
+- Use uma skill lider por fase.
+- Nao acione varias skills para decidir a mesma coisa.
+- A skill atual deve terminar com uma saida clara e indicar a proxima skill.
+- Skills de revisao entram depois da implementacao correspondente, nao antes.
+- Quando duas skills parecem aplicaveis, escolha pela precedencia abaixo.
+
+### Precedencia
+
+1. Ideia vaga ou produto novo -> `product-discovery`
+2. Feature sem comportamento aprovado -> `brainstorming`
+3. UI com risco de ficar generica -> `creative-direction`
+4. Projeto com varias partes tecnicas -> `full-project-architecture`
+5. API especifica -> `api-design`
+6. Banco/persistencia especifica -> `database-design`
+7. Plano de execucao -> `writing-plans`
+8. Codigo critico ou bugfix -> `test-driven-development`
+9. Execucao do plano -> `executing-plans` ou `subagent-driven-development`
+10. Falha ou bug inesperado -> `systematic-debugging`
+11. Revisoes finais -> security, tests, performance, visual QA, code review e verification
+
+### Exemplos de nao-competicao
+
+- `creative-direction` decide a identidade visual; `interface-craft` implementa a interface; `visual-quality-review` revisa o resultado.
+- `security-threat-modeling` antecipa riscos; `security-review` avalia o codigo pronto; `secrets-and-config-audit` checa configs e vazamentos.
+- `testing-strategy` define cobertura; `test-driven-development` guia a escrita de testes e codigo; `verification-before-completion` registra evidencia final.
+
+### Regra fixa para UI
+
+Todo projeto com interface deve usar `creative-direction` antes de qualquer implementacao visual. A direcao aprovada governa as skills seguintes.
+
+- `brainstorming` pode definir comportamento e escopo, mas nao substitui direcao visual.
+- `full-project-architecture` pode definir estrutura tecnica, mas nao redefine estilo.
+- `writing-plans` e `executing-plans` executam o design aprovado, nao criam outro design.
+- `ui-ux-pro-max` e apenas compatibilidade; nao usar como caminho principal.
+
 ## Roteador de skills
 
 ### 1) Ideia vaga, produto novo ou escopo confuso

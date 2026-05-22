@@ -1,15 +1,26 @@
 ---
 name: full-project-architecture
-description: Use after product scope is approved and before implementation for complete projects, multi-module apps, SaaS, APIs, dashboards, automations, or systems needing stack, boundaries, data flow, security, testing, and deployment decisions.
+description: Use after product scope is approved and before implementation for complete projects, multi-module apps, SaaS, APIs, dashboards, automations, or systems needing stack, module boundaries, data flow, security, testing, performance, and deployment decisions.
 ---
 
 # Full Project Architecture
 
 Use this to turn approved product scope into a technical blueprint.
 
-## Hard Gate
+## Hard Gates
 
-Do not write an implementation plan until architecture is approved.
+- Do not write an implementation plan until architecture is approved.
+- Do not choose new technology when the existing repo already has a clear stack unless there is a concrete reason.
+- Do not design modules without owners, responsibilities, and interfaces.
+- Do not skip auth, data, error, testing, security, performance, and release implications.
+
+## Required Inputs
+
+- Approved product brief or feature scope
+- Current repository structure and stack
+- Deployment/runtime expectations
+- Data/auth requirements, if known
+- External integrations, if any
 
 ## Process
 
@@ -22,29 +33,37 @@ Do not write an implementation plan until architecture is approved.
    - jobs/queues
    - auth
    - admin/internal surfaces
-3. Define module boundaries and responsibilities.
-4. Define data flow for the primary workflows.
-5. Choose stack only where not already decided by the repo.
-6. Identify security, performance, testing, and release implications.
-7. Propose 2 architecture options when meaningful:
-   - pragmatic default
-   - simpler constrained option
-   - scalable option
-8. Get approval.
+3. Define module boundaries:
+   - responsibility
+   - public interface
+   - dependencies
+   - files/directories
+4. Trace the primary workflows through modules.
+5. Define state, persistence, caching, and data ownership.
+6. Define auth and permission boundaries.
+7. Define error handling, retries, background work, and failure behavior.
+8. Identify security, testing, performance, observability, and release implications.
+9. Propose alternatives only when there is a real tradeoff.
+10. Get architecture approval.
 
-## Output
+## Required Output
 
 - Architecture summary
 - Module map
-- Data flow
-- Key interfaces
+- Primary workflow data flow
+- Key interfaces/contracts
 - State and persistence strategy
 - Auth/permissions model
-- Error handling model
+- Error and failure model
 - Testing strategy hooks
-- Deployment/runtime assumptions
+- Performance assumptions
+- Observability and release notes
 - Risks and tradeoffs
 - Follow-up skills to run
+
+## Quality Bar
+
+Every module must answer: what it owns, how it is used, what it depends on, and how it fails.
 
 ## Red Flags
 
@@ -52,4 +71,5 @@ Do not write an implementation plan until architecture is approved.
 - Shared utilities becoming dumping grounds.
 - Backend endpoints without clear consumers.
 - Database schema before domain boundaries are clear.
-- No plan for auth, errors, tests, or deployment.
+- No plan for auth, errors, tests, performance, observability, or deployment.
+- "We can add that later" for security-critical design.
