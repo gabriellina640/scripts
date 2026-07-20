@@ -2,6 +2,14 @@
 
 Sistema operacional profissional para criar projetos completos com Codex: produto, arquitetura, UI, seguranca, testes, performance, release e manutencao.
 
+## Padrao de resposta
+
+- Seja direto por padrao.
+- Explique longamente apenas quando o usuario pedir, quando houver risco tecnico, decisao relevante, erro, tradeoff ou mudanca de comportamento.
+- Para perguntas simples, comandos de leitura, pequenas correcoes e tarefas locais de baixo risco, responda com o essencial e use validacao proporcional.
+- Nao transforme tarefas pequenas em fluxo completo de produto/design/plano/review.
+- Quando implementar, relate no final somente: o que mudou, onde mudou e como foi verificado.
+
 ## Estrutura oficial
 
 - `AGENTS.md` fica na raiz.
@@ -11,7 +19,38 @@ Sistema operacional profissional para criar projetos completos com Codex: produt
   - `.codex-kit/templates/`
   - `.codex-kit/docs/`
 
-## Gates obrigatorios
+## Modos de rigor
+
+Escolha o menor modo que preserva qualidade e seguranca.
+
+### Modo direto
+
+Use para perguntas, inspecoes, pequenas edicoes, scripts simples, ajustes de texto, fixes localizados e tarefas reversiveis.
+
+- Sem design doc formal.
+- Sem plano extenso; use no maximo uma lista curta se ajudar.
+- Sem code review obrigatorio.
+- Verificacao minima e recente quando houver mudanca em arquivo ou codigo.
+- Resposta curta.
+
+### Modo normal
+
+Use para features medias, mudancas em varios arquivos, comportamento novo, UI simples ou refactor com risco moderado.
+
+- Design curto antes de implementar, aprovado pelo usuario quando houver ambiguidade.
+- Plano executavel curto.
+- Testes ou verificacao manual objetiva.
+- Review proporcional quando a mudanca tocar comportamento importante.
+
+### Modo rigoroso
+
+Use para produto novo, arquitetura ampla, auth, autorizacao, dados sensiveis, pagamentos, uploads, API publica, banco, migracoes, deploy, performance critica ou release.
+
+- Use os gates completos.
+- Acione as skills especializadas por fase.
+- Registre evidencias de validacao.
+
+## Gates obrigatorios no modo rigoroso
 
 1. Nao implementar sem design aprovado.
 2. Nao iniciar sem plano executavel por tarefas atomicas.
@@ -27,7 +66,7 @@ Quando pedir implementacao direta, use:
 
 Use explicacoes apenas quando forem pedidas explicitamente ou quando houver risco tecnico que precise ser registrado.
 
-## Fluxo mestre recomendado
+## Fluxo mestre recomendado para modo rigoroso
 
 1. Produto e escopo
 2. Direcao criativa, quando houver interface
@@ -46,6 +85,7 @@ Use explicacoes apenas quando forem pedidas explicitamente ou quando houver risc
 - Nao acione varias skills para decidir a mesma coisa.
 - A skill atual deve terminar com uma saida clara e indicar a proxima skill.
 - Skills de revisao entram depois da implementacao correspondente, nao antes.
+- Nao carregue skills especializadas se o modo direto resolver a tarefa com seguranca.
 - Quando duas skills parecem aplicaveis, escolha pela precedencia abaixo.
 
 ### Precedencia
@@ -70,8 +110,9 @@ Use explicacoes apenas quando forem pedidas explicitamente ou quando houver risc
 
 ### Regra fixa para UI
 
-Todo projeto com interface deve usar `creative-direction` antes de qualquer implementacao visual. A direcao aprovada governa as skills seguintes.
+Todo projeto importante com interface deve usar `creative-direction` antes de qualquer implementacao visual. A direcao aprovada governa as skills seguintes.
 
+- Ajustes pequenos em UI existente podem usar modo direto, seguindo o design ja presente.
 - `brainstorming` pode definir comportamento e escopo, mas nao substitui direcao visual.
 - `full-project-architecture` pode definir estrutura tecnica, mas nao redefine estilo.
 - `writing-plans` e `executing-plans` executam o design aprovado, nao criam outro design.
@@ -85,6 +126,7 @@ Todo projeto com interface deve usar `creative-direction` antes de qualquer impl
 
 ### 2) Feature, comportamento ou solucao ainda sem design aprovado
 - Use: `.codex-kit/skills/brainstorming/`
+- Use apenas no modo normal/rigoroso ou quando houver ambiguidade real.
 - Resultado: design aprovado antes de qualquer implementacao.
 
 ### 3) Projeto completo, stack, modulos e fronteiras tecnicas
@@ -106,6 +148,7 @@ Todo projeto com interface deve usar `creative-direction` antes de qualquer impl
 
 ### 7) Design aprovado e precisa executar com qualidade
 - Use: `.codex-kit/skills/writing-plans/`
+- Use apenas quando a execucao tiver varias tarefas ou risco moderado/alto.
 - Resultado: plano com tarefas de 5-15 min, arquivos-alvo e validacao por tarefa.
 
 ### 8) Execucao normal com checkpoints
@@ -118,6 +161,7 @@ Todo projeto com interface deve usar `creative-direction` antes de qualquer impl
 
 ### 10) Logica critica, bugfix ou risco de regressao
 - Use: `.codex-kit/skills/test-driven-development/`
+- Para fix simples e localizado, pode usar teste/regressao proporcional sem carregar a skill inteira.
 - Resultado: ciclo RED-GREEN-REFACTOR.
 
 ### 11) Bug dificil, falha de teste ou comportamento inconsistente
@@ -185,6 +229,7 @@ Todo projeto com interface deve usar `creative-direction` antes de qualquer impl
 ## Padrao de qualidade esperado
 
 - Toda mudanca importante tem design, plano, testes, review e verificacao.
+- Toda mudanca pequena tem escopo claro, edicao direta e verificacao proporcional.
 - Toda UI importante passa por direcao criativa e QA visual.
 - Todo projeto com usuarios reais passa por threat modeling, security review e release readiness.
 - Toda afirmacao de conclusao precisa de evidencia recente.

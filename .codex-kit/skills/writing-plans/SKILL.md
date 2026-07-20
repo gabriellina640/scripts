@@ -1,19 +1,19 @@
 ---
 name: writing-plans
-description: Use when you have a spec or requirements for a multi-step task, before touching code
+description: Use when a spec or requirement needs multi-step implementation, coordination, or risk control before touching code. Do not use for direct low-risk edits that can be safely completed and verified in one pass.
 ---
 
 # Writing Plans
 
 ## Overview
 
-Write comprehensive implementation plans assuming the engineer has zero context for our codebase and questionable taste. Document everything they need to know: which files to touch for each task, code, testing, docs they might need to check, how to test it. Give them the whole plan as bite-sized tasks. DRY. YAGNI. TDD. Frequent commits.
+Write implementation plans only when planning adds real control. Keep plans proportional: short for normal work, comprehensive for rigorous work. Document files, tasks, tests, commands, and expected results. DRY. YAGNI. TDD where risk justifies it.
 
 Assume they are a skilled developer, but know almost nothing about our toolset or problem domain. Assume they don't know good test design very well.
 
-**Announce at start:** "I'm using the writing-plans skill to create the implementation plan."
+**Announce at start only when useful:** "I'm using the writing-plans skill to create the implementation plan."
 
-**Context:** This should be run in a dedicated worktree (created by brainstorming skill).
+**Context:** Rigorous work should be run in a dedicated worktree when isolation matters.
 
 **Save plans to:** `docs/codex-kit/plans/YYYY-MM-DD-<feature-name>.md`
 - (User preferences for plan location override this default)

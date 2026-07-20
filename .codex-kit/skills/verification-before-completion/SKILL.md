@@ -1,22 +1,20 @@
 ---
 name: verification-before-completion
-description: Use when about to claim work is complete, fixed, or passing, before committing or creating PRs - requires running verification commands and confirming output before making any success claims; evidence before assertions always
+description: Use before claiming meaningful work is complete, fixed, or passing, especially before commits, PRs, releases, or risky changes. For small edits, run proportional fresh verification and report it briefly.
 ---
 
 # Verification Before Completion
 
 ## Overview
 
-Claiming work is complete without verification is dishonesty, not efficiency.
+Claiming meaningful work is complete without verification is unreliable. Match verification depth to risk.
 
-**Core principle:** Evidence before claims, always.
-
-**Violating the letter of this rule is violating the spirit of this rule.**
+**Core principle:** Evidence before claims.
 
 ## The Iron Law
 
 ```
-NO COMPLETION CLAIMS WITHOUT FRESH VERIFICATION EVIDENCE
+NO MEANINGFUL COMPLETION CLAIMS WITHOUT FRESH VERIFICATION EVIDENCE
 ```
 
 If you haven't run the verification command in this message, you cannot claim it passes.

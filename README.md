@@ -11,13 +11,23 @@ Kit profissional para desenvolvimento assistido por Codex com foco em **produto,
 
 ## Regra principal
 
-Use **uma skill lider por fase**. Skills nao competem: a skill atual entrega um artefato claro e aponta a proxima etapa.
+Use **rigor proporcional** e uma skill lider por fase. Skills nao competem: a skill atual entrega um artefato claro e aponta a proxima etapa.
 
 ```text
 Decidir -> Planejar -> Implementar -> Revisar -> Verificar -> Lançar
 ```
 
-Nunca pule estes gates:
+### Modos de trabalho
+
+```text
+Direto   -> tarefa simples, resposta curta, verificacao proporcional
+Normal   -> feature media, design curto, plano curto, validacao objetiva
+Rigoroso -> produto/release/risco alto, fluxo completo com reviews
+```
+
+No modo direto, nao crie design doc, plano formal ou review obrigatorio. Use o menor processo que preserve seguranca e qualidade.
+
+Nunca pule estes gates no modo rigoroso:
 
 1. Nao implementar sem design aprovado.
 2. Nao iniciar sem plano executavel por tarefas atomicas.
@@ -25,9 +35,9 @@ Nunca pule estes gates:
 4. Nao concluir sem code review.
 5. Nao marcar "done" sem verificacao final.
 
-## Fluxo Padrao
+## Fluxo Rigoroso
 
-Use este fluxo para a maioria dos projetos:
+Use este fluxo para projetos completos, sensiveis ou perto de release:
 
 ```text
 1. product-discovery
@@ -52,11 +62,11 @@ Use este fluxo para a maioria dos projetos:
 20. finishing-a-development-branch
 ```
 
-Nem todo projeto precisa de todas. Um script simples pode usar poucas. Um produto real com usuarios deve usar quase todas.
+Nem todo projeto precisa de todas. Um script simples deve usar modo direto. Um produto real com usuarios deve usar quase todas.
 
 ## Regra Fixa Para Design Vivo E Unico
 
-Para qualquer projeto com interface, o caminho de design e sempre:
+Para qualquer projeto importante com interface, o caminho de design e:
 
 ```text
 creative-direction -> interface-craft -> visual-quality-review
@@ -66,6 +76,7 @@ Nao use `ui-ux-pro-max` como skill principal. Ela existe apenas por compatibilid
 
 Hierarquia visual:
 
+- Ajustes pequenos em UI existente podem seguir o design ja presente em modo direto.
 - `creative-direction` decide a personalidade, tese visual, assets, composicao e anti-padroes.
 - `interface-craft` implementa exatamente essa direcao.
 - `visual-quality-review` pode rejeitar a UI se ela ficar generica, mesmo que esteja tecnicamente funcionando.

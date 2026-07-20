@@ -1,6 +1,6 @@
 ---
 name: test-driven-development
-description: Use when implementing any feature or bugfix, before writing implementation code
+description: Use for critical logic, regression-prone bugfixes, behavior changes with meaningful risk, or when the user explicitly asks for TDD. For tiny low-risk edits, use proportional tests or verification without loading this full workflow.
 ---
 
 # Test-Driven Development (TDD)
@@ -15,18 +15,24 @@ Write the test first. Watch it fail. Write minimal code to pass.
 
 ## When to Use
 
-**Always:**
+**Use rigorously for:**
 - New features
 - Bug fixes
 - Refactoring
 - Behavior changes
 
-**Exceptions (ask the user):**
+**Use proportional verification for:**
+- Text/docs/config-only changes
+- Tiny low-risk fixes
+- Mechanical edits
+- Existing code with no practical test harness
+
+**Ask the user before skipping tests for:**
 - Throwaway prototypes
 - Generated code
 - Configuration files
 
-Thinking "skip TDD just this once"? Stop. That's rationalization.
+Do not use this skill as ceremony. Use it when a failing test materially reduces risk.
 
 ## The Iron Law
 
